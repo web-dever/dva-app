@@ -1,0 +1,22 @@
+{
+  "name": "dva-app",
+  "version": "1.0.0",
+  "description": "### 2018-03-25 `xvivx` 初始化项目。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@xvivx:web-dever/dva-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "antd": "^3.3.3",
+    "dva": "^2.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}

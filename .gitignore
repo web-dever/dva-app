@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-node_modules/
+**/node_modules
 # production
 /dist
 
@@ -12,3 +12,4 @@ node_modules/
 # misc
 .DS_Store
 npm-debug.log*
+.vscode

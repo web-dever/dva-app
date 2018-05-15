@@ -10,6 +10,7 @@ import ui from './app.less';
 import { NAMESPACE, LOGIN_ACTION } from '../models/app';
 
 const { Content, Footer, Sider } = Layout;
+
 const App = (props) => {
     const { dispatch } = props;
     dispatch({ type: `${ NAMESPACE }/${ LOGIN_ACTION }` });

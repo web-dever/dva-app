@@ -1,7 +1,7 @@
 module.exports = {
     "entry": "app/index.js",
     "disableCSSModules": false,
-    "devtool": "cheap-eval-source-map",
+    "devtool": "cheap-module-eval-source-map",
     "extraBabelPlugins": [
         [
             "import",

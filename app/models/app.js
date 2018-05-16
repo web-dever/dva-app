@@ -1,17 +1,28 @@
-import { login } from '../services/login';
-
-
-export const NAMESPACE = 'app';
-export const LOGIN_ACTION = 'LOGIN_ACTION';
+import { routerRedux } from 'dva/router';
 
 export default {
-    namespace: NAMESPACE,
+    namespace: 'app',
     state: {
-        isLogin: false
+        user: {},
+        darkTheme: true,
+        menu: [
+            {
+                id: '1',
+                icon: 'laptap',
+                name: '面板数据'
+            }
+        ],
+        onlyIcon: false
     },
     effects: {
-        *[LOGIN_ACTION]({ payload }, { put, call }) {
-            const res = yield call(login, payload);
-        }
+
+    },
+    reducers: {
+        ['change/sider/width'](state) {
+            return {
+              ...state,
+              onlyIcon: !state.onlyIcon,
+            }
+          },
     }
 }

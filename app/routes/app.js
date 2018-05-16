@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
-import { SiderPanel } from '../components/Layout';
-import { RightContent } from '../components/Layout';
+import { withRouter } from 'dva/router';
+import { SiderPanel, Header } from '../components/Layout';
 
 import { Layout } from 'antd';
 
@@ -12,20 +12,44 @@ import { NAMESPACE, LOGIN_ACTION } from '../models/app';
 const { Content, Footer, Sider } = Layout;
 
 const App = (props) => {
-    const { dispatch } = props;
-    dispatch({ type: `${ NAMESPACE }/${ LOGIN_ACTION }` });
+    const { dispatch, children, location, loading, app } = props;
+    const {
+        user, onlyIcon
+    } = app;
+
+    const changeWidth = () => {
+        dispatch({
+            type: 'app/change/sider/width'
+        });
+    }
+
+    let { pathname } = location;
+    
+    pathname = pathname.startsWith('/') ? pathname : `/${pathname}`;
+
 
     return (
-        <div className={ ui['clear-fix'] }>
-            <Layout>
-                <Sider></Sider>
-                <Layout>
-                    <Content></Content>
-                    <Footer></Footer>
-                </Layout>
+        <Layout>
+            <Sider collapsed={onlyIcon} collapsible trigger={null}>
+                <SiderPanel onlyIcon={onlyIcon}></SiderPanel>
+            </Sider>
+            <Layout style={{ height: '100vh', overflow: 'scroll' }}>
+                <Header changeWidth={changeWidth} onlyIcon={onlyIcon}></Header>
+                <Content>
+                    {children}
+                </Content>
+                <Footer>ELLA@2018</Footer>
             </Layout>
-        </div>
+        </Layout>
     );
 };
 
-export default connect()(App);
+
+const mapStateToProps = (state) => {
+    return {
+        app: state.app,
+        loading: state.loading
+    };
+};
+
+export default withRouter(connect(({ app, loading }) => ({ app, loading }))(App));

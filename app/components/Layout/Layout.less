@@ -1,18 +1,60 @@
+@import url("../../themes/common.less");
+@import url("../../themes/var.less");
 
-@import url('../../themes/common.less');
-
-.sider-bar{
-    float: left;
-    height: 100vh;
-    width: 200px;
-    font-size: 1.4rem;
-    background-color: #001529;
-    color: #f7f7f7;
-    transition: width linear .3s;
+:global {
+	.ant-layout-footer {
+		text-align: center;
+		padding: 0 24px;
+		height: 40px;
+		font-size: 12px;
+		line-height: 40px;
+	}
+	.ant-layout-content {
+		padding-left: 16px;
+	}
+}
+.right-content{
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
-.right-content{
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+.logo {
+	height: 96px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  
+	img {
+		width: 40px;
+		margin-right: 8px;
+	}
+  
+	span {
+		vertical-align: text-bottom;
+		font-size: 16px;
+		text-transform: uppercase;
+		display: inline-block;
+		font-weight: 700;
+		color: @primary-color;
+		white-space: nowrap;
+		:local {
+			animation: fadeLeftIn 500ms linear;
+			animation-fill-mode: both;
+		}
+	}
+}
+
+
+
+@keyframes fadeLeftIn {
+	from {
+		transform: translateX(5px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }

@@ -1,0 +1,34 @@
+@import url("../../themes/common.less");
+@import url("../../themes/var.less");
+
+:global {
+  .ant-layout-header {
+    padding: 0;
+  }
+}
+.header {
+  box-shadow: @shadow-2;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 56px;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+
+  .switch-button {
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: @transition-ease-in;
+
+    &:hover {
+      color: @primary-color;
+      background-color: fade(@primary-color, 15%);
+    }
+  }
+}
